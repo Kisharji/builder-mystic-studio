@@ -1,24 +1,37 @@
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import { Calendar } from '@/components/ui/calendar';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Textarea } from '@/components/ui/textarea';
-import { 
-  CloudSun, 
-  Sprout, 
-  MessageCircle, 
-  Calendar as CalendarIcon, 
-  TrendingUp, 
-  Leaf, 
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  CloudSun,
+  Sprout,
+  MessageCircle,
+  Calendar as CalendarIcon,
+  TrendingUp,
+  Leaf,
   Droplets,
   Thermometer,
   Wind,
   Search,
-  DollarSign
-} from 'lucide-react';
+  DollarSign,
+} from "lucide-react";
 
 interface Crop {
   id: number;
@@ -63,61 +76,75 @@ interface WeatherData {
 export default function Index() {
   const [crops, setCrops] = useState<Crop[]>([]);
   const [filteredCrops, setFilteredCrops] = useState<Crop[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(
+    new Date(),
+  );
   const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [chatMessages, setChatMessages] = useState<Array<{role: string, content: string}>>([]);
-  const [chatInput, setChatInput] = useState('');
+  const [chatMessages, setChatMessages] = useState<
+    Array<{ role: string; content: string }>
+  >([]);
+  const [chatInput, setChatInput] = useState("");
   const [loading, setLoading] = useState(false);
 
   // Fetch crops data
   useEffect(() => {
-    fetch('/api/crops')
-      .then(res => res.json())
-      .then(data => {
+    fetch("/api/crops")
+      .then((res) => res.json())
+      .then((data) => {
         setCrops(data.crops);
         setFilteredCrops(data.crops);
       })
-      .catch(err => console.error('Error fetching crops:', err));
+      .catch((err) => console.error("Error fetching crops:", err));
   }, []);
 
   // Fetch weather data
   useEffect(() => {
-    fetch('/api/weather?location=New York') // Default location
-      .then(res => res.json())
-      .then(data => setWeather(data))
-      .catch(err => console.error('Error fetching weather:', err));
+    fetch("/api/weather?location=New York") // Default location
+      .then((res) => res.json())
+      .then((data) => setWeather(data))
+      .catch((err) => console.error("Error fetching weather:", err));
   }, []);
 
   // Filter crops based on search
   useEffect(() => {
-    const filtered = crops.filter(crop => 
-      crop.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      crop.category.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = crops.filter(
+      (crop) =>
+        crop.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        crop.category.toLowerCase().includes(searchTerm.toLowerCase()),
     );
     setFilteredCrops(filtered);
   }, [searchTerm, crops]);
 
   const handleChatSubmit = async () => {
     if (!chatInput.trim()) return;
-    
-    const userMessage = { role: 'user', content: chatInput };
-    setChatMessages(prev => [...prev, userMessage]);
-    setChatInput('');
+
+    const userMessage = { role: "user", content: chatInput };
+    setChatMessages((prev) => [...prev, userMessage]);
+    setChatInput("");
     setLoading(true);
 
     try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: chatInput })
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: chatInput }),
       });
-      
+
       const data = await response.json();
-      setChatMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
+      setChatMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: data.response },
+      ]);
     } catch (error) {
-      console.error('Error sending message:', error);
-      setChatMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' }]);
+      console.error("Error sending message:", error);
+      setChatMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "Sorry, I encountered an error. Please try again.",
+        },
+      ]);
     } finally {
       setLoading(false);
     }
@@ -134,14 +161,33 @@ export default function Index() {
                 <Leaf className="h-8 w-8 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">FarmAdvisor</h1>
-                <p className="text-sm text-gray-600">Smart Agriculture Solutions</p>
+                <h1 className="text-2xl font-bold text-gray-900">
+                  FarmAdvisor
+                </h1>
+                <p className="text-sm text-gray-600">
+                  Smart Agriculture Solutions
+                </p>
               </div>
             </div>
             <nav className="hidden md:flex space-x-6">
-              <Button variant="ghost" className="text-gray-700 hover:text-green-600">Dashboard</Button>
-              <Button variant="ghost" className="text-gray-700 hover:text-green-600">Analytics</Button>
-              <Button variant="ghost" className="text-gray-700 hover:text-green-600">Reports</Button>
+              <Button
+                variant="ghost"
+                className="text-gray-700 hover:text-green-600"
+              >
+                Dashboard
+              </Button>
+              <Button
+                variant="ghost"
+                className="text-gray-700 hover:text-green-600"
+              >
+                Analytics
+              </Button>
+              <Button
+                variant="ghost"
+                className="text-gray-700 hover:text-green-600"
+              >
+                Reports
+              </Button>
             </nav>
           </div>
         </div>
@@ -154,7 +200,8 @@ export default function Index() {
             Welcome to Your Smart Farm Dashboard
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get real-time weather updates, crop prices, farming advice, and plan your agricultural activities with our AI-powered platform.
+            Get real-time weather updates, crop prices, farming advice, and plan
+            your agricultural activities with our AI-powered platform.
           </p>
         </div>
 
@@ -163,19 +210,31 @@ export default function Index() {
           {/* Weather Card */}
           <Card className="lg:col-span-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-lg font-medium">Weather Forecast</CardTitle>
+              <CardTitle className="text-lg font-medium">
+                Weather Forecast
+              </CardTitle>
               <CloudSun className="h-5 w-5 text-blue-600" />
             </CardHeader>
             <CardContent>
               {weather ? (
                 <div className="space-y-4">
                   <div className="text-center">
-                    <h3 className="text-lg font-semibold">{weather.location.name}</h3>
+                    <h3 className="text-lg font-semibold">
+                      {weather.location.name}
+                    </h3>
                     <div className="flex items-center justify-center space-x-2">
-                      <img src={weather.current.condition.icon} alt="weather" className="w-12 h-12" />
-                      <span className="text-3xl font-bold">{weather.current.temp_c}°C</span>
+                      <img
+                        src={weather.current.condition.icon}
+                        alt="weather"
+                        className="w-12 h-12"
+                      />
+                      <span className="text-3xl font-bold">
+                        {weather.current.temp_c}°C
+                      </span>
                     </div>
-                    <p className="text-gray-600">{weather.current.condition.text}</p>
+                    <p className="text-gray-600">
+                      {weather.current.condition.text}
+                    </p>
                   </div>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div className="flex items-center space-x-2">
@@ -190,13 +249,28 @@ export default function Index() {
                   {weather.forecast && (
                     <div className="space-y-2">
                       <h4 className="font-medium">3-Day Forecast</h4>
-                      {weather.forecast.forecastday.slice(0, 3).map((day, idx) => (
-                        <div key={idx} className="flex items-center justify-between">
-                          <span className="text-sm">{new Date(day.date).toLocaleDateString('en-US', { weekday: 'short' })}</span>
-                          <img src={day.day.condition.icon} alt="weather" className="w-6 h-6" />
-                          <span className="text-sm">{day.day.maxtemp_c}°/{day.day.mintemp_c}°</span>
-                        </div>
-                      ))}
+                      {weather.forecast.forecastday
+                        .slice(0, 3)
+                        .map((day, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center justify-between"
+                          >
+                            <span className="text-sm">
+                              {new Date(day.date).toLocaleDateString("en-US", {
+                                weekday: "short",
+                              })}
+                            </span>
+                            <img
+                              src={day.day.condition.icon}
+                              alt="weather"
+                              className="w-6 h-6"
+                            />
+                            <span className="text-sm">
+                              {day.day.maxtemp_c}°/{day.day.mintemp_c}°
+                            </span>
+                          </div>
+                        ))}
                     </div>
                   )}
                 </div>
@@ -212,7 +286,9 @@ export default function Index() {
           {/* Calendar Card */}
           <Card className="lg:col-span-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-lg font-medium">Farm Calendar</CardTitle>
+              <CardTitle className="text-lg font-medium">
+                Farm Calendar
+              </CardTitle>
               <CalendarIcon className="h-5 w-5 text-green-600" />
             </CardHeader>
             <CardContent>
@@ -226,11 +302,11 @@ export default function Index() {
                 <div className="mt-4 p-3 bg-green-50 rounded-lg">
                   <h4 className="font-medium text-green-800">Selected Date</h4>
                   <p className="text-sm text-green-700">
-                    {selectedDate.toLocaleDateString('en-US', { 
-                      weekday: 'long', 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
+                    {selectedDate.toLocaleDateString("en-US", {
+                      weekday: "long",
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
                     })}
                   </p>
                 </div>
@@ -241,7 +317,9 @@ export default function Index() {
           {/* AI Chat Card */}
           <Card className="lg:col-span-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-lg font-medium">AI Farm Advisor</CardTitle>
+              <CardTitle className="text-lg font-medium">
+                AI Farm Advisor
+              </CardTitle>
               <MessageCircle className="h-5 w-5 text-purple-600" />
             </CardHeader>
             <CardContent>
@@ -254,12 +332,17 @@ export default function Index() {
                     </div>
                   ) : (
                     chatMessages.map((msg, idx) => (
-                      <div key={idx} className={`mb-3 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
-                        <div className={`inline-block p-2 rounded-lg max-w-xs ${
-                          msg.role === 'user' 
-                            ? 'bg-green-600 text-white' 
-                            : 'bg-white text-gray-800 border'
-                        }`}>
+                      <div
+                        key={idx}
+                        className={`mb-3 ${msg.role === "user" ? "text-right" : "text-left"}`}
+                      >
+                        <div
+                          className={`inline-block p-2 rounded-lg max-w-xs ${
+                            msg.role === "user"
+                              ? "bg-green-600 text-white"
+                              : "bg-white text-gray-800 border"
+                          }`}
+                        >
                           {msg.content}
                         </div>
                       </div>
@@ -270,8 +353,14 @@ export default function Index() {
                       <div className="inline-block p-2 rounded-lg bg-white border">
                         <div className="flex space-x-1">
                           <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                          <div
+                            className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                            style={{ animationDelay: "0.1s" }}
+                          ></div>
+                          <div
+                            className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                            style={{ animationDelay: "0.2s" }}
+                          ></div>
                         </div>
                       </div>
                     </div>
@@ -282,10 +371,14 @@ export default function Index() {
                     placeholder="Ask about farming, crops, weather..."
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
-                    onKeyPress={(e) => e.key === 'Enter' && handleChatSubmit()}
+                    onKeyPress={(e) => e.key === "Enter" && handleChatSubmit()}
                     className="flex-1"
                   />
-                  <Button onClick={handleChatSubmit} disabled={loading} className="bg-green-600 hover:bg-green-700">
+                  <Button
+                    onClick={handleChatSubmit}
+                    disabled={loading}
+                    className="bg-green-600 hover:bg-green-700"
+                  >
                     Send
                   </Button>
                 </div>
@@ -304,7 +397,8 @@ export default function Index() {
                   <span>Current Crop Prices</span>
                 </CardTitle>
                 <CardDescription>
-                  Search and track current market prices for agricultural commodities
+                  Search and track current market prices for agricultural
+                  commodities
                 </CardDescription>
               </div>
               <div className="flex items-center space-x-2">
@@ -321,7 +415,10 @@ export default function Index() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {filteredCrops.map((crop) => (
-                <div key={crop.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow bg-white">
+                <div
+                  key={crop.id}
+                  className="border rounded-lg p-4 hover:shadow-md transition-shadow bg-white"
+                >
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="font-medium text-gray-900">{crop.name}</h3>
                     <Badge variant="secondary" className="text-xs">
@@ -335,8 +432,12 @@ export default function Index() {
                         ${crop.pricePerKg}/kg
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600">Season: {crop.season}</p>
-                    <p className="text-sm text-gray-600">Growth: {crop.growthDuration}</p>
+                    <p className="text-sm text-gray-600">
+                      Season: {crop.season}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Growth: {crop.growthDuration}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -350,7 +451,10 @@ export default function Index() {
             <CardContent className="p-6">
               <Sprout className="h-12 w-12 text-green-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Crop Planning</h3>
-              <p className="text-gray-600">Plan your next season's crops based on market trends and weather patterns.</p>
+              <p className="text-gray-600">
+                Plan your next season's crops based on market trends and weather
+                patterns.
+              </p>
             </CardContent>
           </Card>
 
@@ -358,7 +462,10 @@ export default function Index() {
             <CardContent className="p-6">
               <TrendingUp className="h-12 w-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Market Analysis</h3>
-              <p className="text-gray-600">Get insights into price trends and market opportunities for your crops.</p>
+              <p className="text-gray-600">
+                Get insights into price trends and market opportunities for your
+                crops.
+              </p>
             </CardContent>
           </Card>
 
@@ -366,7 +473,10 @@ export default function Index() {
             <CardContent className="p-6">
               <CloudSun className="h-12 w-12 text-orange-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Weather Insights</h3>
-              <p className="text-gray-600">Receive personalized farming recommendations based on weather forecasts.</p>
+              <p className="text-gray-600">
+                Receive personalized farming recommendations based on weather
+                forecasts.
+              </p>
             </CardContent>
           </Card>
         </div>

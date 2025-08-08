@@ -220,7 +220,7 @@
       "id": 25,
       "name": "Tea",
       "category": "Beverage",
-      "pricePerKg": 8.90,
+      "pricePerKg": 8.9,
       "currency": "USD",
       "season": "Year-round",
       "growthDuration": "3-4 years"
@@ -247,7 +247,7 @@
       "id": 28,
       "name": "Vanilla",
       "category": "Spice",
-      "pricePerKg": 450.00,
+      "pricePerKg": 450.0,
       "currency": "USD",
       "season": "Year-round",
       "growthDuration": "3-4 years"
@@ -409,7 +409,7 @@
       "id": 46,
       "name": "Cherries",
       "category": "Fruit",
-      "pricePerKg": 8.90,
+      "pricePerKg": 8.9,
       "currency": "USD",
       "season": "Summer",
       "growthDuration": "4-6 years"

@@ -1,0 +1,454 @@
+{
+  "crops": [
+    {
+      "id": 1,
+      "name": "Wheat",
+      "category": "Cereal",
+      "pricePerKg": 2.45,
+      "currency": "USD",
+      "season": "Winter",
+      "growthDuration": "120-150 days"
+    },
+    {
+      "id": 2,
+      "name": "Rice",
+      "category": "Cereal",
+      "pricePerKg": 1.89,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "100-120 days"
+    },
+    {
+      "id": 3,
+      "name": "Corn",
+      "category": "Cereal",
+      "pricePerKg": 0.67,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "90-120 days"
+    },
+    {
+      "id": 4,
+      "name": "Soybeans",
+      "category": "Legume",
+      "pricePerKg": 1.34,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "90-120 days"
+    },
+    {
+      "id": 5,
+      "name": "Barley",
+      "category": "Cereal",
+      "pricePerKg": 0.78,
+      "currency": "USD",
+      "season": "Winter",
+      "growthDuration": "90-120 days"
+    },
+    {
+      "id": 6,
+      "name": "Oats",
+      "category": "Cereal",
+      "pricePerKg": 0.89,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "60-90 days"
+    },
+    {
+      "id": 7,
+      "name": "Tomatoes",
+      "category": "Vegetable",
+      "pricePerKg": 3.25,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "70-90 days"
+    },
+    {
+      "id": 8,
+      "name": "Potatoes",
+      "category": "Vegetable",
+      "pricePerKg": 1.12,
+      "currency": "USD",
+      "season": "Spring",
+      "growthDuration": "90-120 days"
+    },
+    {
+      "id": 9,
+      "name": "Onions",
+      "category": "Vegetable",
+      "pricePerKg": 1.45,
+      "currency": "USD",
+      "season": "Spring",
+      "growthDuration": "120-150 days"
+    },
+    {
+      "id": 10,
+      "name": "Carrots",
+      "category": "Vegetable",
+      "pricePerKg": 1.78,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "70-80 days"
+    },
+    {
+      "id": 11,
+      "name": "Lettuce",
+      "category": "Vegetable",
+      "pricePerKg": 2.34,
+      "currency": "USD",
+      "season": "Spring",
+      "growthDuration": "45-65 days"
+    },
+    {
+      "id": 12,
+      "name": "Cabbage",
+      "category": "Vegetable",
+      "pricePerKg": 1.23,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "70-90 days"
+    },
+    {
+      "id": 13,
+      "name": "Apples",
+      "category": "Fruit",
+      "pricePerKg": 3.45,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "3-5 years"
+    },
+    {
+      "id": 14,
+      "name": "Oranges",
+      "category": "Fruit",
+      "pricePerKg": 2.89,
+      "currency": "USD",
+      "season": "Winter",
+      "growthDuration": "3-4 years"
+    },
+    {
+      "id": 15,
+      "name": "Bananas",
+      "category": "Fruit",
+      "pricePerKg": 1.67,
+      "currency": "USD",
+      "season": "Year-round",
+      "growthDuration": "9-12 months"
+    },
+    {
+      "id": 16,
+      "name": "Grapes",
+      "category": "Fruit",
+      "pricePerKg": 4.23,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "2-3 years"
+    },
+    {
+      "id": 17,
+      "name": "Strawberries",
+      "category": "Fruit",
+      "pricePerKg": 8.45,
+      "currency": "USD",
+      "season": "Spring",
+      "growthDuration": "60-90 days"
+    },
+    {
+      "id": 18,
+      "name": "Cotton",
+      "category": "Fiber",
+      "pricePerKg": 1.56,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "180-200 days"
+    },
+    {
+      "id": 19,
+      "name": "Sunflower",
+      "category": "Oilseed",
+      "pricePerKg": 0.98,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "85-120 days"
+    },
+    {
+      "id": 20,
+      "name": "Canola",
+      "category": "Oilseed",
+      "pricePerKg": 1.23,
+      "currency": "USD",
+      "season": "Spring",
+      "growthDuration": "100-120 days"
+    },
+    {
+      "id": 21,
+      "name": "Peanuts",
+      "category": "Legume",
+      "pricePerKg": 2.78,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "120-140 days"
+    },
+    {
+      "id": 22,
+      "name": "Sugar Beet",
+      "category": "Root",
+      "pricePerKg": 0.45,
+      "currency": "USD",
+      "season": "Spring",
+      "growthDuration": "120-150 days"
+    },
+    {
+      "id": 23,
+      "name": "Sugar Cane",
+      "category": "Grass",
+      "pricePerKg": 0.34,
+      "currency": "USD",
+      "season": "Year-round",
+      "growthDuration": "12-18 months"
+    },
+    {
+      "id": 24,
+      "name": "Coffee",
+      "category": "Beverage",
+      "pricePerKg": 12.45,
+      "currency": "USD",
+      "season": "Year-round",
+      "growthDuration": "3-5 years"
+    },
+    {
+      "id": 25,
+      "name": "Tea",
+      "category": "Beverage",
+      "pricePerKg": 8.90,
+      "currency": "USD",
+      "season": "Year-round",
+      "growthDuration": "3-4 years"
+    },
+    {
+      "id": 26,
+      "name": "Cocoa",
+      "category": "Beverage",
+      "pricePerKg": 5.67,
+      "currency": "USD",
+      "season": "Year-round",
+      "growthDuration": "3-5 years"
+    },
+    {
+      "id": 27,
+      "name": "Pepper",
+      "category": "Spice",
+      "pricePerKg": 15.23,
+      "currency": "USD",
+      "season": "Year-round",
+      "growthDuration": "3-4 years"
+    },
+    {
+      "id": 28,
+      "name": "Vanilla",
+      "category": "Spice",
+      "pricePerKg": 450.00,
+      "currency": "USD",
+      "season": "Year-round",
+      "growthDuration": "3-4 years"
+    },
+    {
+      "id": 29,
+      "name": "Cucumber",
+      "category": "Vegetable",
+      "pricePerKg": 1.89,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "50-70 days"
+    },
+    {
+      "id": 30,
+      "name": "Bell Pepper",
+      "category": "Vegetable",
+      "pricePerKg": 3.45,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "70-90 days"
+    },
+    {
+      "id": 31,
+      "name": "Broccoli",
+      "category": "Vegetable",
+      "pricePerKg": 2.67,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "70-90 days"
+    },
+    {
+      "id": 32,
+      "name": "Cauliflower",
+      "category": "Vegetable",
+      "pricePerKg": 2.89,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "75-85 days"
+    },
+    {
+      "id": 33,
+      "name": "Spinach",
+      "category": "Vegetable",
+      "pricePerKg": 3.12,
+      "currency": "USD",
+      "season": "Spring",
+      "growthDuration": "40-50 days"
+    },
+    {
+      "id": 34,
+      "name": "Kale",
+      "category": "Vegetable",
+      "pricePerKg": 4.56,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "55-75 days"
+    },
+    {
+      "id": 35,
+      "name": "Sweet Potato",
+      "category": "Root",
+      "pricePerKg": 1.78,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "90-120 days"
+    },
+    {
+      "id": 36,
+      "name": "Beets",
+      "category": "Root",
+      "pricePerKg": 2.34,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "55-70 days"
+    },
+    {
+      "id": 37,
+      "name": "Radish",
+      "category": "Root",
+      "pricePerKg": 1.45,
+      "currency": "USD",
+      "season": "Spring",
+      "growthDuration": "25-30 days"
+    },
+    {
+      "id": 38,
+      "name": "Turnip",
+      "category": "Root",
+      "pricePerKg": 1.23,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "45-60 days"
+    },
+    {
+      "id": 39,
+      "name": "Eggplant",
+      "category": "Vegetable",
+      "pricePerKg": 2.89,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "70-85 days"
+    },
+    {
+      "id": 40,
+      "name": "Zucchini",
+      "category": "Vegetable",
+      "pricePerKg": 1.67,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "50-65 days"
+    },
+    {
+      "id": 41,
+      "name": "Pumpkin",
+      "category": "Vegetable",
+      "pricePerKg": 0.89,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "90-120 days"
+    },
+    {
+      "id": 42,
+      "name": "Watermelon",
+      "category": "Fruit",
+      "pricePerKg": 0.78,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "80-100 days"
+    },
+    {
+      "id": 43,
+      "name": "Cantaloupe",
+      "category": "Fruit",
+      "pricePerKg": 1.45,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "70-90 days"
+    },
+    {
+      "id": 44,
+      "name": "Peaches",
+      "category": "Fruit",
+      "pricePerKg": 4.56,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "3-4 years"
+    },
+    {
+      "id": 45,
+      "name": "Pears",
+      "category": "Fruit",
+      "pricePerKg": 3.78,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "3-5 years"
+    },
+    {
+      "id": 46,
+      "name": "Cherries",
+      "category": "Fruit",
+      "pricePerKg": 8.90,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "4-6 years"
+    },
+    {
+      "id": 47,
+      "name": "Plums",
+      "category": "Fruit",
+      "pricePerKg": 4.23,
+      "currency": "USD",
+      "season": "Summer",
+      "growthDuration": "3-5 years"
+    },
+    {
+      "id": 48,
+      "name": "Avocado",
+      "category": "Fruit",
+      "pricePerKg": 6.78,
+      "currency": "USD",
+      "season": "Year-round",
+      "growthDuration": "3-4 years"
+    },
+    {
+      "id": 49,
+      "name": "Almonds",
+      "category": "Nut",
+      "pricePerKg": 12.34,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "4-6 years"
+    },
+    {
+      "id": 50,
+      "name": "Walnuts",
+      "category": "Nut",
+      "pricePerKg": 15.67,
+      "currency": "USD",
+      "season": "Fall",
+      "growthDuration": "5-7 years"
+    }
+  ]
+}
